@@ -1,9 +1,18 @@
 [gd_scene format=3 uid="uid://bk7fkktvn874i"]
 
-[node name="Node3D" type="Node3D" unique_id=1031636847]
+[ext_resource type="PackedScene" uid="uid://bjso4fpsri3pt" path="res://assets/ChibiCharactersV1.2 pj/ChibiCharacters/glb/merchantpr.glb" id="1_w35pe"]
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1505969199]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pbpy4"]
+height = 2.421875
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=144515125]
+[node name="maga player" type="Node3D" unique_id=891179164]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=2027112155]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1481064407]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=178232122]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2161689, -0.07181847)
+shape = SubResource("CapsuleShape3D_pbpy4")
+
+[node name="merchantpr" parent="CharacterBody3D" unique_id=1537726533 instance=ExtResource("1_w35pe")]
+
+[editable path="CharacterBody3D/merchantpr"]

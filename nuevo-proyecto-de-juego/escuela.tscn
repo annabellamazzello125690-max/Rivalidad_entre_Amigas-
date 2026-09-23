@@ -280,6 +280,24 @@ transform = Transform3D(1.4906837, 0, 0, 0, 1.7725961, 0, 0, 0, 1, 7.474823, 1.4
 [node name="wall_0048" parent="Pasillo" unique_id=1221362888 instance=ExtResource("13_wogku")]
 transform = Transform3D(1.4393721, 0, 0, 0, 1.7725961, 0, 0, 0, 1, 4.592247, 1.4623833, -29.345629)
 
+[node name="wall_0049" parent="Pasillo" unique_id=151783223 instance=ExtResource("12_bideo")]
+transform = Transform3D(1.6851085, 0, 0, 0, 1.64977, 0, 0, 0, 1, 12.876166, 1.5566559, -35.20699)
+
+[node name="wall_0050" parent="Pasillo" unique_id=1311564013 instance=ExtResource("12_bideo")]
+transform = Transform3D(1.6851085, 0, 0, 0, 1.64977, 0, 0, 0, 1, 9.574504, 1.5566559, -35.20699)
+
+[node name="wall_0051" parent="Pasillo" unique_id=1780592684 instance=ExtResource("12_bideo")]
+transform = Transform3D(1.8117976, 0, 0, 0, 1.64977, 0, 0, 0, 1, 6.098147, 1.5566559, -35.218)
+
+[node name="wall_0052" parent="Pasillo" unique_id=1131786925 instance=ExtResource("12_bideo")]
+transform = Transform3D(1.9965225, 0, 0, 0, 1.64977, 0, 0, 0, 1, 2.36914, 1.5566559, -35.20699)
+
+[node name="wall_0053" parent="Pasillo" unique_id=533121205 instance=ExtResource("12_bideo")]
+transform = Transform3D(-7.3658434e-08, 0, 1, 0, 1.64977, 0, -1.6851085, 0, -4.371139e-08, 0.39, 1.557, -29.956764)
+
+[node name="wall_0054" parent="Pasillo" unique_id=1528066733 instance=ExtResource("12_bideo")]
+transform = Transform3D(-7.779601e-08, 0, 1, 0, 1.64977, 0, -1.7797652, 0, -4.371139e-08, 0.39, 1.557, -33.422894)
+
 [node name="Piso y puertas" type="Node3D" parent="." unique_id=1220744776]
 
 [node name="floorpattern2" parent="Piso y puertas" unique_id=38051878 instance=ExtResource("15_wogku")]

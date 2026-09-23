@@ -35,7 +35,7 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 18.614504, 
 [node name="Baños" type="Node3D" parent="." unique_id=936014647]
 
 [node name="toiletdemoscene2" parent="Baños" unique_id=670391258 instance=ExtResource("2_mt2cc")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -4.3727436, 0, -23.219912)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -4.291931, 0, -23.219912)
 
 [node name="toiletdemoscene3" parent="Baños" unique_id=1310536969 instance=ExtResource("2_mt2cc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8682137, 0, -15.525454)
@@ -118,7 +118,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.252726, 0, -0.46738005)
 [node name="Laboratorio" type="Node3D" parent="." unique_id=1359608698]
 
 [node name="CHEMISTRYlabdemoscene2" parent="Laboratorio" unique_id=253613003 instance=ExtResource("8_wkv31")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.44301, -9.536743e-07, -10.436731)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.380278, -9.536743e-07, -10.436731)
 
 [node name="Computacion" type="Node3D" parent="." unique_id=890915088]
 
@@ -137,7 +137,7 @@ transform = Transform3D(1.5431393, 0, 0, 0, 1.710914, 0, 0, 0, 1.451035, -3.8877
 transform = Transform3D(1.3638116, 0, 0, 0, 1.7725961, 0, 0, 0, 1, -0.9932716, 1.4623833, 9.414991)
 
 [node name="wall_0013" parent="Pasillo" unique_id=784684568 instance=ExtResource("13_wogku")]
-transform = Transform3D(-5.96141e-08, 0, 1, 0, 1.7725961, 0, -1.3638116, 0, -4.371139e-08, -2.3068109, 1.4623833, 14.2537155)
+transform = Transform3D(-6.403461e-08, 0, 1, 0, 1.7725961, 0, -1.4649409, 0, -4.371139e-08, -2.3068109, 1.4623833, 14.177409)
 
 [node name="wall_0014" parent="Pasillo" unique_id=1413168286 instance=ExtResource("13_wogku")]
 transform = Transform3D(-6.504533e-08, 0, 1, 0, 1.7725961, 0, -1.4880636, 0, -4.371139e-08, 3.14, 1.462, 15.505621)
@@ -164,13 +164,13 @@ transform = Transform3D(-7.2287975e-08, 0, 1, 0, 1.7590102, 0, -1.6537561, 0, -4
 transform = Transform3D(-7.2287975e-08, 0, 1, 0, 1.7590102, 0, -1.6537561, 0, -4.371139e-08, 3.176, 1.461, 0.467)
 
 [node name="wall_0019" parent="Pasillo" unique_id=95514036 instance=ExtResource("13_wogku")]
-transform = Transform3D(1.8306428, 0, 0, 0, 1.7725961, 0, 0, 0, 1, 5.019257, 1.4623833, -5.3717785)
+transform = Transform3D(2.0208325, 0, 0, 0, 1.7725961, 0, 0, 0, 1, 5.159568, 1.4623833, -5.3717785)
 
 [node name="wall_0020" parent="Pasillo" unique_id=183757552 instance=ExtResource("13_wogku")]
-transform = Transform3D(1.981213, 0, 0, 0, 1.7725961, 0, 0, 0, 1, 8.795809, 1.4623833, -5.3717785)
+transform = Transform3D(2.0689013, 0, 0, 0, 1.7725961, 0, 0, 0, 1, 9.206158, 1.4623833, -5.3717785)
 
 [node name="wall_0021" parent="Pasillo" unique_id=1469849742 instance=ExtResource("13_wogku")]
-transform = Transform3D(1.9420742, 0, 0, 0, 1.7725961, 0, 0, 0, 1, 12.686138, 1.4623833, -5.3717785)
+transform = Transform3D(-8.855951e-08, 0, 1, 0, 1.7725961, 0, -2.0260055, 0, -4.371139e-08, 0.39026737, 1.4623833, 7.442358)
 
 [node name="wall_0022" parent="Pasillo" unique_id=2065910094 instance=ExtResource("13_wogku")]
 transform = Transform3D(-5.4307726e-08, 0, 1, 0, 1.7725961, 0, -1.2424159, 0, -4.371139e-08, 14.579326, 1.4623833, -6.658683)
@@ -228,6 +228,57 @@ transform = Transform3D(-7.2287975e-08, 0, 1, 0, 1.7590102, 0, -1.6537561, 0, -4
 
 [node name="walldoor_0019" parent="Pasillo" unique_id=676751679 instance=ExtResource("14_x3esv")]
 transform = Transform3D(-7.2287975e-08, 0, 1, 0, 1.7590102, 0, -1.6537561, 0, -4.371139e-08, 14.59, 1.461, -13.739472)
+
+[node name="walldoor_0020" parent="Pasillo" unique_id=1706470511 instance=ExtResource("14_x3esv")]
+transform = Transform3D(-7.2287975e-08, 0, 1, 0, 1.7590102, 0, -1.6537561, 0, -4.371139e-08, 0.39, 1.461, 3.7892408)
+
+[node name="wall_0038" parent="Pasillo" unique_id=1022405327 instance=ExtResource("13_wogku")]
+transform = Transform3D(-9.841701e-08, 0, 1, 0, 1.7725961, 0, -2.2515187, 0, -4.371139e-08, 0.39026737, 1.4623833, -0.052139282)
+
+[node name="wall_0039" parent="Pasillo" unique_id=921173659 instance=ExtResource("13_wogku")]
+transform = Transform3D(-9.2537874e-08, 0, 1, 0, 1.7725961, 0, -2.1170197, 0, -4.371139e-08, 0.39026737, 1.4623833, -4.404809)
+
+[node name="wall_0040" parent="Pasillo" unique_id=2086244753 instance=ExtResource("13_wogku")]
+transform = Transform3D(-9.2478885e-08, 0, 1, 0, 1.7725961, 0, -2.1156702, 0, -4.371139e-08, 0.39026737, 1.4623833, -11.829686)
+
+[node name="wall_0041" parent="Pasillo" unique_id=1961733285 instance=ExtResource("13_wogku")]
+transform = Transform3D(-8.489076e-08, 0, 1, 0, 1.7725961, 0, -1.9420742, 0, -4.371139e-08, 0.39026737, 1.4623833, -15.781401)
+
+[node name="wall_0042" parent="Pasillo" unique_id=1956312918 instance=ExtResource("13_wogku")]
+transform = Transform3D(-1.04073784e-07, 0, 1, 0, 1.7725961, 0, -2.3809307, 0, -4.371139e-08, 0.39026737, 1.4623833, -25.980515)
+
+[node name="walldoor_0021" parent="Pasillo" unique_id=239286886 instance=ExtResource("14_x3esv")]
+transform = Transform3D(-7.2287975e-08, 0, 1, 0, 1.7590102, 0, -1.6537561, 0, -4.371139e-08, 0.39, 1.461, -8.151938)
+
+[node name="walldoor_0022" parent="Pasillo" unique_id=21021092 instance=ExtResource("14_x3esv")]
+transform = Transform3D(-7.2287975e-08, 0, 1, 0, 1.7590102, 0, -1.6537561, 0, -4.371139e-08, 0.39, 1.461, -18.715097)
+
+[node name="walldoor_0023" parent="Pasillo" unique_id=156029995 instance=ExtResource("14_x3esv")]
+transform = Transform3D(-7.2287975e-08, 0, 1, 0, 1.7590102, 0, -1.6537561, 0, -4.371139e-08, 0.39, 1.461, -21.961151)
+
+[node name="walldoor_0024" parent="Pasillo" unique_id=1862863381 instance=ExtResource("14_x3esv")]
+transform = Transform3D(-7.2287975e-08, 0, 1, 0, 1.7590102, 0, -1.6537561, 0, -4.371139e-08, -2.3, 1.461, 11.062508)
+
+[node name="walldoor_0025" parent="Pasillo" unique_id=236798582 instance=ExtResource("14_x3esv")]
+transform = Transform3D(1.6537561, 0, 0, 0, 1.7590102, 0, 0, 0, 1, 12.942104, 1.461, -5.373)
+
+[node name="wall_0043" parent="Pasillo" unique_id=520447168 instance=ExtResource("13_wogku")]
+transform = Transform3D(1.4349184, 0, 0, 0, 1.7725961, 0, 0, 0, 1, 21.885906, 1.4623833, -35.105366)
+
+[node name="wall_0044" parent="Pasillo" unique_id=1744232842 instance=ExtResource("13_wogku")]
+transform = Transform3D(1.5052526, 0, 0, 0, 1.7725961, 0, 0, 0, 1, 18.985428, 1.4623833, -35.105366)
+
+[node name="wall_0045" parent="Pasillo" unique_id=1088133701 instance=ExtResource("13_wogku")]
+transform = Transform3D(1.4393721, 0, 0, 0, 1.7725961, 0, 0, 0, 1, 16.06419, 1.4623833, -35.105366)
+
+[node name="wall_0046" parent="Pasillo" unique_id=1484138832 instance=ExtResource("13_wogku")]
+transform = Transform3D(1.4393721, 0, 0, 0, 1.7725961, 0, 0, 0, 1, 10.402661, 1.4623833, -29.345629)
+
+[node name="wall_0047" parent="Pasillo" unique_id=2096172038 instance=ExtResource("13_wogku")]
+transform = Transform3D(1.4906837, 0, 0, 0, 1.7725961, 0, 0, 0, 1, 7.474823, 1.4623833, -29.345629)
+
+[node name="wall_0048" parent="Pasillo" unique_id=1221362888 instance=ExtResource("13_wogku")]
+transform = Transform3D(1.4393721, 0, 0, 0, 1.7725961, 0, 0, 0, 1, 4.592247, 1.4623833, -29.345629)
 
 [node name="Piso y puertas" type="Node3D" parent="." unique_id=1220744776]
 

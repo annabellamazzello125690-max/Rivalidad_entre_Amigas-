@@ -1,0 +1,175 @@
+[gd_scene format=3 uid="uid://ds2d6w3ixc8ds"]
+
+[ext_resource type="PackedScene" uid="uid://c3cc81c8c2tof" path="res://assets/escuela/classroom/GLTF/classroom_demoscene.glb" id="1_oxlh1"]
+[ext_resource type="PackedScene" uid="uid://dp4obc13j2hul" path="res://assets/escuela/toilet/GLTF/toiletdemoscene.glb" id="2_mt2cc"]
+[ext_resource type="PackedScene" uid="uid://bkxsybl2tpvf4" path="res://assets/escuela/toilet/GLTF/toiletwallsfloor.glb" id="3_dgm2e"]
+[ext_resource type="PackedScene" uid="uid://6esg10kj3gdj" path="res://assets/escuela/classroom/GLTF/locker.glb" id="4_nq0on"]
+[ext_resource type="PackedScene" uid="uid://b8d57cftjxgiy" path="res://assets/escuela/classroom/FBX/locker_001.fbx" id="5_mt2cc"]
+[ext_resource type="PackedScene" uid="uid://c5vr8ox1hxi1d" path="res://assets/escuela/principal office/GLTF/PRINCIPALOFFICEdemoscene.fbx" id="6_4qkwh"]
+[ext_resource type="PackedScene" uid="uid://eaywp51t1688" path="res://assets/escuela/ArtRoom/glb/demoscene.glb" id="6_dgm2e"]
+[ext_resource type="PackedScene" uid="uid://bx6mm86uq378a" path="res://assets/escuela/catferia/GLTF/CAFETERIAdemoscene.glb" id="7_ak8b8"]
+[ext_resource type="PackedScene" uid="uid://tl3xepdq1ax7" path="res://assets/escuela/principal office/GLTF/PRINCIPALOFFICEdemoscene.glb" id="7_ie88l"]
+[ext_resource type="PackedScene" uid="uid://cfc0aeog6qo2r" path="res://assets/escuela/chemestry lab/GLTF/CHEMISTRYlabdemoscene.glb" id="8_wkv31"]
+[ext_resource type="PackedScene" uid="uid://bseij86vebdbp" path="res://assets/escuela/computer/GLTF/COMPUTERdemoscene.glb" id="9_4qkwh"]
+[ext_resource type="PackedScene" uid="uid://rrihbft6lrvc" path="res://assets/escuela/walls/GLB/wall_003.glb" id="12_bideo"]
+[ext_resource type="PackedScene" uid="uid://cmsgpw4c6e4ao" path="res://assets/escuela/walls/GLB/wall_001.glb" id="13_wogku"]
+[ext_resource type="PackedScene" uid="uid://coxqkd2kas8pv" path="res://assets/escuela/walls/GLB/walldoor_001.glb" id="14_x3esv"]
+
+[node name="Escuela" type="Node3D" unique_id=1580166927]
+
+[node name="Aulas" type="Node3D" parent="." unique_id=1103839219]
+
+[node name="classroom_demoscene" parent="Aulas" unique_id=819719979 instance=ExtResource("1_oxlh1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -4.0357375, 0, -5.281126)
+
+[node name="classroom_demoscene2" parent="Aulas" unique_id=1263962481 instance=ExtResource("1_oxlh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1733723, 0, -0.4043913)
+
+[node name="classroom_demoscene3" parent="Aulas" unique_id=1899815613 instance=ExtResource("1_oxlh1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3.946288, 0, -15.208891)
+
+[node name="classroom_demoscene4" parent="Aulas" unique_id=1981128256 instance=ExtResource("1_oxlh1")]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 7.098072, 0, -34.660282)
+
+[node name="Baños" type="Node3D" parent="." unique_id=936014647]
+
+[node name="toiletdemoscene2" parent="Baños" unique_id=670391258 instance=ExtResource("2_mt2cc")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -4.6417418, 0, -23.219912)
+
+[node name="toiletdemoscene3" parent="Baños" unique_id=1310536969 instance=ExtResource("2_mt2cc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8682137, 0, -15.525454)
+
+[node name="toiletwallsfloor2" parent="Baños" unique_id=1452373042 instance=ExtResource("3_dgm2e")]
+transform = Transform3D(-6.074774e-08, 0, 0.99999994, 0, 1, 0, -1.3897463, 0, -4.3711385e-08, 9.107067, 0, -25.353317)
+
+[node name="locker2" parent="Baños" unique_id=1809598186 instance=ExtResource("4_nq0on")]
+transform = Transform3D(4.075387, 0, 0, 0, 4.075387, 0, 0, 0, 4.075387, 3.9798784, 1.5750501, -19.297241)
+
+[node name="locker3" parent="Baños" unique_id=1569804682 instance=ExtResource("4_nq0on")]
+transform = Transform3D(4.075387, 0, 0, 0, 4.075387, 0, 0, 0, 4.075387, 5.046033, 1.5750501, -19.297241)
+
+[node name="locker4" parent="Baños" unique_id=1191474461 instance=ExtResource("4_nq0on")]
+transform = Transform3D(4.075387, 0, 0, 0, 4.075387, 0, 0, 0, 4.075387, 6.173854, 1.5750501, -19.297241)
+
+[node name="locker5" parent="Baños" unique_id=506006424 instance=ExtResource("4_nq0on")]
+transform = Transform3D(4.075387, 0, 0, 0, 4.075387, 0, 0, 0, 4.075387, 7.318738, 1.5750501, -19.297241)
+
+[node name="locker6" parent="Baños" unique_id=1573921860 instance=ExtResource("4_nq0on")]
+transform = Transform3D(4.075387, 0, 0, 0, 4.075387, 0, 0, 0, 4.075387, 8.440399, 1.5750501, -19.297241)
+
+[node name="locker7" parent="Baños" unique_id=1853778156 instance=ExtResource("4_nq0on")]
+transform = Transform3D(4.075387, 0, 0, 0, 4.075387, 0, 0, 0, 4.075387, 9.527454, 1.5750501, -19.297241)
+
+[node name="locker8" parent="Baños" unique_id=1337236786 instance=ExtResource("4_nq0on")]
+transform = Transform3D(4.075387, 0, 0, 0, 4.075387, 0, 0, 0, 4.075387, 10.645731, 1.5750501, -19.297241)
+
+[node name="locker9" parent="Baños" unique_id=56650624 instance=ExtResource("4_nq0on")]
+transform = Transform3D(4.075387, 0, 0, 0, 4.075387, 0, 0, 0, 4.075387, 3.9798784, 1.5750501, -23.010246)
+
+[node name="locker10" parent="Baños" unique_id=973999614 instance=ExtResource("4_nq0on")]
+transform = Transform3D(4.075387, 0, 0, 0, 4.075387, 0, 0, 0, 4.075387, 5.133162, 1.5750501, -23.010246)
+
+[node name="locker11" parent="Baños" unique_id=943742869 instance=ExtResource("4_nq0on")]
+transform = Transform3D(4.075387, 0, 0, 0, 4.075387, 0, 0, 0, 4.075387, 6.2849903, 1.5750501, -23.010246)
+
+[node name="locker_001" parent="Baños" unique_id=242240248 instance=ExtResource("5_mt2cc")]
+transform = Transform3D(4.127657, 0, 0, 0, 4.127657, 0, 0, 0, 4.127657, 7.4605875, 1.420311, -23.027372)
+
+[node name="locker_002" parent="Baños" unique_id=1625240957 instance=ExtResource("5_mt2cc")]
+transform = Transform3D(4.127657, 0, 0, 0, 4.127657, 0, 0, 0, 4.127657, 8.634471, 1.420311, -23.027372)
+
+[node name="locker_003" parent="Baños" unique_id=197508690 instance=ExtResource("5_mt2cc")]
+transform = Transform3D(4.127657, 0, 0, 0, 4.127657, 0, 0, 0, 4.127657, 7.4605875, 1.420311, -26.103804)
+
+[node name="locker_004" parent="Baños" unique_id=276500657 instance=ExtResource("5_mt2cc")]
+transform = Transform3D(4.127657, 0, 0, 0, 4.127657, 0, 0, 0, 4.127657, 8.700346, 1.420311, -26.103804)
+
+[node name="locker_005" parent="Baños" unique_id=826799168 instance=ExtResource("5_mt2cc")]
+transform = Transform3D(4.127657, 0, 0, 0, 4.127657, 0, 0, 0, 4.127657, 10.973385, 1.420311, -26.103804)
+
+[node name="locker_006" parent="Baños" unique_id=1015053421 instance=ExtResource("5_mt2cc")]
+transform = Transform3D(4.127657, 0, 0, 0, 4.127657, 0, 0, 0, 4.127657, 9.809155, 1.420311, -26.103804)
+
+[node name="locker_007" parent="Baños" unique_id=286330537 instance=ExtResource("5_mt2cc")]
+transform = Transform3D(-1.8042562e-07, 0, 4.127657, 0, 4.127657, 0, -4.127657, 0, -1.8042562e-07, 9.064297, 1.420311, -28.66084)
+
+[node name="Direccion" type="Node3D" parent="." unique_id=1222703636]
+
+[node name="PRINCIPALOFFICEdemoscene" parent="Direccion" unique_id=1851605962 instance=ExtResource("6_4qkwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1110964, 0, 8.045315)
+
+[node name="PRINCIPALOFFICEdemoscene2" parent="Direccion" unique_id=2068996934 instance=ExtResource("7_ie88l")]
+transform = Transform3D(0.9969292, 0, 0, 0, 1, 0, 0, 0, 1, 7.132106, 0, 14.225474)
+
+[node name="PRINCIPALOFFICEdemoscene3" parent="Direccion" unique_id=1132421386 instance=ExtResource("6_4qkwh")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.1835117, 0, 12.195534)
+
+[node name="Sala de Arte" type="Node3D" parent="." unique_id=1919237303]
+
+[node name="demoscene" parent="Sala de Arte" unique_id=68474599 instance=ExtResource("6_dgm2e")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -4.6040964, 0, 4.462199)
+
+[node name="Cafeteria" type="Node3D" parent="." unique_id=1277041464]
+
+[node name="CAFETERIAdemoscene2" parent="Cafeteria" unique_id=688118120 instance=ExtResource("7_ak8b8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.252726, 0, -0.46738005)
+
+[node name="Laboratorio" type="Node3D" parent="." unique_id=1359608698]
+
+[node name="CHEMISTRYlabdemoscene2" parent="Laboratorio" unique_id=253613003 instance=ExtResource("8_wkv31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.44301, -9.536743e-07, -10.436731)
+
+[node name="Computacion" type="Node3D" parent="." unique_id=890915088]
+
+[node name="COMPUTERdemoscene2" parent="Computacion" unique_id=521953465 instance=ExtResource("9_4qkwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.384096, 0, -20.175278)
+
+[node name="Pasillo" type="Node3D" parent="." unique_id=1433118027]
+
+[node name="wall_0032" parent="Pasillo" unique_id=1912511792 instance=ExtResource("12_bideo")]
+transform = Transform3D(1.6085157, 0, 0, 0, 1.710914, 0, 0, 0, 1.451035, -7.0551143, 1.5391583, 15.609506)
+
+[node name="wall_0033" parent="Pasillo" unique_id=1920252077 instance=ExtResource("12_bideo")]
+transform = Transform3D(1.5431393, 0, 0, 0, 1.710914, 0, 0, 0, 1.451035, -3.8877857, 1.5391583, 15.609506)
+
+[node name="wall_0012" parent="Pasillo" unique_id=1056994996 instance=ExtResource("13_wogku")]
+transform = Transform3D(1.3638116, 0, 0, 0, 1.7725961, 0, 0, 0, 1, -0.9932716, 1.4623833, 9.414991)
+
+[node name="wall_0013" parent="Pasillo" unique_id=784684568 instance=ExtResource("13_wogku")]
+transform = Transform3D(-5.96141e-08, 0, 1, 0, 1.7725961, 0, -1.3638116, 0, -4.371139e-08, -2.3068109, 1.4623833, 14.2537155)
+
+[node name="wall_0014" parent="Pasillo" unique_id=1413168286 instance=ExtResource("13_wogku")]
+transform = Transform3D(-6.504533e-08, 0, 1, 0, 1.7725961, 0, -1.4880636, 0, -4.371139e-08, 3.14, 1.462, 15.505621)
+
+[node name="wall_0015" parent="Pasillo" unique_id=725995403 instance=ExtResource("13_wogku")]
+transform = Transform3D(-5.96141e-08, 0, 1, 0, 1.7725961, 0, -1.3638116, 0, -4.371139e-08, 3.139568, 1.4623833, 6.08531)
+
+[node name="wall_0016" parent="Pasillo" unique_id=2105594735 instance=ExtResource("13_wogku")]
+transform = Transform3D(-5.96141e-08, 0, 1, 0, 1.7725961, 0, -1.3638116, 0, -4.371139e-08, 3.1761148, 1.4623833, 3.1109014)
+
+[node name="wall_0017" parent="Pasillo" unique_id=1639295535 instance=ExtResource("13_wogku")]
+transform = Transform3D(-5.1411117e-08, 0, 1, 0, 1.7725961, 0, -1.1761492, 0, -4.371139e-08, 3.1761148, 1.4623833, -1.801357)
+
+[node name="wall_0018" parent="Pasillo" unique_id=1166653027 instance=ExtResource("13_wogku")]
+transform = Transform3D(-5.4307726e-08, 0, 1, 0, 1.7725961, 0, -1.2424159, 0, -4.371139e-08, 3.1761148, 1.4623833, -4.1572304)
+
+[node name="walldoor_0012" parent="Pasillo" unique_id=1344924179 instance=ExtResource("14_x3esv")]
+transform = Transform3D(-7.2287975e-08, 0, 1, 0, 1.7590102, 0, -1.6537561, 0, -4.371139e-08, 3.14, 1.4609599, 9.12706)
+
+[node name="walldoor_0013" parent="Pasillo" unique_id=679130858 instance=ExtResource("14_x3esv")]
+transform = Transform3D(-7.2287975e-08, 0, 1, 0, 1.7590102, 0, -1.6537561, 0, -4.371139e-08, 3.14, 1.4609599, 12.440939)
+
+[node name="walldoor_0014" parent="Pasillo" unique_id=1801006848 instance=ExtResource("14_x3esv")]
+transform = Transform3D(-7.2287975e-08, 0, 1, 0, 1.7590102, 0, -1.6537561, 0, -4.371139e-08, 3.176, 1.461, 0.467)
+
+[node name="wall_0019" parent="Pasillo" unique_id=95514036 instance=ExtResource("13_wogku")]
+transform = Transform3D(1.8306428, 0, 0, 0, 1.7725961, 0, 0, 0, 1, 5.019257, 1.4623833, -5.3717785)
+
+[node name="wall_0020" parent="Pasillo" unique_id=183757552 instance=ExtResource("13_wogku")]
+transform = Transform3D(1.981213, 0, 0, 0, 1.7725961, 0, 0, 0, 1, 8.795809, 1.4623833, -5.3717785)
+
+[node name="wall_0021" parent="Pasillo" unique_id=1469849742 instance=ExtResource("13_wogku")]
+transform = Transform3D(1.9420742, 0, 0, 0, 1.7725961, 0, 0, 0, 1, 12.686138, 1.4623833, -5.3717785)
+
+[node name="wall_0022" parent="Pasillo" unique_id=2065910094 instance=ExtResource("13_wogku")]
+transform = Transform3D(-5.4307726e-08, 0, 1, 0, 1.7725961, 0, -1.2424159, 0, -4.371139e-08, 14.4430685, 1.4623833, -6.840663)

@@ -6,6 +6,8 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_unay4"]
 height = 2.1987305
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gqdpc"]
+
 [node name="Maga" type="CharacterBody3D" unique_id=1722194529]
 script = ExtResource("1_ydkek")
 
@@ -20,3 +22,9 @@ transform = Transform3D(1, 0, 0, 0, 0.98971313, 0.14306615, 0, -0.14306615, 0.98
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=915981501]
 transform = Transform3D(1, 0, 0, 0, 0.9554018, 0.29530907, 0, -0.29530907, 0.9554018, 0, 3.5940294, 6.6294966)
+
+[node name="GestorDeVidaHP" type="Area3D" parent="." unique_id=169431528]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GestorDeVidaHP" unique_id=363088335]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2741154, 0)
+shape = SubResource("CapsuleShape3D_gqdpc")

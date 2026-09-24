@@ -16,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://coxqkd2kas8pv" path="res://assets/escuela/walls/GLB/walldoor_001.glb" id="14_x3esv"]
 [ext_resource type="PackedScene" uid="uid://k1a2p68fvp3a" path="res://assets/escuela/walls/GLB/floorpattern.glb" id="15_wogku"]
 [ext_resource type="PackedScene" uid="uid://dq0flwig0b0q7" path="res://assets/escuela/walls/GLB/walldoor_003.glb" id="16_x3esv"]
+[ext_resource type="PackedScene" uid="uid://bk7fkktvn874i" path="res://Personajes/rosa_maga/maga.tscn" id="17_j2u5w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j2u5w"]
 
 [node name="Escuela" type="Node3D" unique_id=1580166927]
 
@@ -381,3 +384,12 @@ transform = Transform3D(1.3871746, 0, 0, 0, 1, 0, 0, 0, 1.2706463, -0.8878598, 0
 
 [node name="walldoor_0032" parent="Piso y puertas" unique_id=395785519 instance=ExtResource("16_x3esv")]
 transform = Transform3D(2.7416658, 0, 0, 0, 1.642249, 0, 0, 0, 1, 0.43606412, 1.5817297, 17.036524)
+
+[node name="Maga" parent="." unique_id=1722194529 instance=ExtResource("17_j2u5w")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.406767, 0, 14.329449)
+
+[node name="piso" type="StaticBody3D" parent="." unique_id=1147223266]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="piso" unique_id=418251870]
+transform = Transform3D(33, 0, -3.941528e-06, 0, 1, 0, 2.09791e-06, 0, 62, 6.013014, 0, -10.755615)
+shape = SubResource("BoxShape3D_j2u5w")

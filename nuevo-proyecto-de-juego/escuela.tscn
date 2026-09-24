@@ -386,7 +386,7 @@ transform = Transform3D(1.3871746, 0, 0, 0, 1, 0, 0, 0, 1.2706463, -0.8878598, 0
 transform = Transform3D(2.7416658, 0, 0, 0, 1.642249, 0, 0, 0, 1, 0.43606412, 1.5817297, 17.036524)
 
 [node name="Maga" parent="." unique_id=1722194529 instance=ExtResource("17_j2u5w")]
-transform = Transform3D(0.7513887, 0, 0, 0, 0.7513887, 0, 0, 0, 0.7513887, 0.406767, 0, 17.068308)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.406767, 0, 14.329449)
 
 [node name="piso" type="StaticBody3D" parent="." unique_id=1147223266]
 

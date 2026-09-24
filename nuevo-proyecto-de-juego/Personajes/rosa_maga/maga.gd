@@ -1,14 +1,14 @@
 extends CharacterBody3D
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+const VELOCIDAD = 5.0
+const VELOCIDAD_SALTO = 4.5
 
-# Sistema de vida de la maga
+# vida de la maga
 var vida_maxima: int = 100
 var vida_actual: int = 100
 
 func _ready():
-	# Nos aseguramos de arrancar con la vida al máximo
+	# vida al máximo
 	vida_actual = vida_maxima
 	print("¡Maga lista! Vida actual: ", vida_actual)
 
@@ -17,20 +17,20 @@ func _physics_process(delta: float):
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# 2. Manejar salto
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	# 2. Manejar salto usando tu acción personalizada "saltar"
+	if Input.is_action_just_pressed("saltar") and is_on_floor():
+		velocity.y = VELOCIDAD_SALTO
 
-	# 3. Movimiento con WASD o flechas
-	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	# 3. Movimiento usando tus acciones personalizadas del mapa de entrada
+	var input_dir := Input.get_vector("mover a la izquierda", "mover a la derecha", "mover arriba", "mover abajo")
+	var direccion := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+	if direccion:
+		velocity.x = direccion.x * VELOCIDAD
+		velocity.z = direccion.z * VELOCIDAD
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, VELOCIDAD)
+		velocity.z = move_toward(velocity.z, 0, VELOCIDAD)
 
 	# 4. Ejecutar el movimiento físico
 	move_and_slide()

@@ -18,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://dq0flwig0b0q7" path="res://assets/escuela/walls/GLB/walldoor_003.glb" id="16_x3esv"]
 [ext_resource type="PackedScene" uid="uid://bk7fkktvn874i" path="res://Personajes/rosa_maga/maga.tscn" id="17_j2u5w"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_j2u5w"]
+
 [node name="Escuela" type="Node3D" unique_id=1580166927]
 
 [node name="Aulas" type="Node3D" parent="." unique_id=1103839219]
@@ -385,3 +387,9 @@ transform = Transform3D(2.7416658, 0, 0, 0, 1.642249, 0, 0, 0, 1, 0.43606412, 1.
 
 [node name="Maga" parent="." unique_id=1722194529 instance=ExtResource("17_j2u5w")]
 transform = Transform3D(0.7513887, 0, 0, 0, 0.7513887, 0, 0, 0, 0.7513887, 0.406767, 0, 17.068308)
+
+[node name="piso" type="StaticBody3D" parent="." unique_id=1147223266]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="piso" unique_id=418251870]
+transform = Transform3D(33, 0, -3.941528e-06, 0, 1, 0, 2.09791e-06, 0, 62, 6.013014, 0, -10.755615)
+shape = SubResource("BoxShape3D_j2u5w")

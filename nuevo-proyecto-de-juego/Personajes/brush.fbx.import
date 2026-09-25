@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b8up8r6psmlur"
-path="res://.godot/imported/brush.fbx-c3209ca18ec43ef8d6669f189ad1678d.scn"
+path="res://.godot/imported/brush.fbx-a0b23df5c1903403cc6b8a23f4d98192.scn"
 
 [deps]
 
-source_file="res://assets/escuela/ArtRoom/fbx/brush.fbx"
-dest_files=["res://.godot/imported/brush.fbx-c3209ca18ec43ef8d6669f189ad1678d.scn"]
+source_file="res://Personajes/brush.fbx"
+dest_files=["res://.godot/imported/brush.fbx-a0b23df5c1903403cc6b8a23f4d98192.scn"]
 
 [params]
 

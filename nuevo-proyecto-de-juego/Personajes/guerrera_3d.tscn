@@ -7,6 +7,8 @@
 radius = 0.5527344
 height = 2.5141602
 
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_epin6"]
+
 [node name="guerrera" type="CharacterBody3D" unique_id=1142227477]
 script = ExtResource("1_wfx24")
 
@@ -15,7 +17,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00026154518, 1.362151, -0.0
 shape = SubResource("CapsuleShape3D_epin6")
 
 [node name="knightpr" parent="." unique_id=201142514 instance=ExtResource("2_l45rj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1605835, -0.02663982)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.1605835, -0.02663982)
 
 [node name="Skeleton3D" parent="knightpr/root_armature_knight" parent_id_path=PackedInt32Array(201142514, 638917156) index="0" unique_id=130783000]
 bones/0/position = Vector3(0.026234698, 0.6403979, -0.029604968)
@@ -76,8 +78,16 @@ bones/76/rotation = Quaternion(-0.5973216, -0.014216203, 0.02115678, 0.80159676)
 bones/77/position = Vector3(-7.37926e-09, 0.079086356, -5.5114135e-09)
 bones/77/rotation = Quaternion(-0.011895538, 0.9665403, -0.25622147, -0.0029811885)
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1261457927]
-transform = Transform3D(-0.99893725, -0.016780887, 0.042928137, 0, 0.93136847, 0.36407796, -0.04609147, 0.36369103, -0.9303787, 0.035576347, 2.4630544, -1.7855914)
+[node name="PivoteCamara" type="Node3D" parent="." unique_id=1329162509]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, -0.007)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="PivoteCamara" unique_id=881375892]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 2.5)
+shape = SubResource("SeparationRayShape3D_epin6")
+spring_length = 1.5
+
+[node name="Camera3D" type="Camera3D" parent="PivoteCamara/SpringArm3D" unique_id=1261457927]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 0, 0)
 current = true
 
 [editable path="knightpr"]

@@ -76,7 +76,7 @@ func disparar():
 	# La bola sale hacia donde mira la cámara
 	var camara := get_viewport().get_camera_3d()
 	var dir: Vector3 = -camara.global_transform.basis.z
-	modelo.rotaciony =  atan2(dir.x , dir.z)
+	#modelo.rotaciony =  atan2(dir.x , dir.z)
 	#animacion de ataque
 
 

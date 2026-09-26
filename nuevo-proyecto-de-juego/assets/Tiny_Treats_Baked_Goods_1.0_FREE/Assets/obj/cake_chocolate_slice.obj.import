@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cwqi3jjk141q4"
+path="res://.godot/imported/cake_chocolate_slice.obj-6df223e5d3c028458a7c1e3e5e37bb81.mesh"
+
+[deps]
+
+files=["res://.godot/imported/cake_chocolate_slice.obj-6df223e5d3c028458a7c1e3e5e37bb81.mesh"]
+
+source_file="res://assets/Tiny_Treats_Baked_Goods_1.0_FREE/Assets/obj/cake_chocolate_slice.obj"
+dest_files=["res://.godot/imported/cake_chocolate_slice.obj-6df223e5d3c028458a7c1e3e5e37bb81.mesh", "res://.godot/imported/cake_chocolate_slice.obj-6df223e5d3c028458a7c1e3e5e37bb81.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 const VELOCIDAD = 5.0
+const VELOCIDAD_SALTO = 4.5
 
 # Cámara
 const SENSIBILIDAD_MOUSE = 0.003
@@ -10,6 +11,7 @@ const LIMITE_ABAJO = -60.0
 # Animaciones
 const ANIM_QUIETA = "anim_iddle"
 const ANIM_CAMINAR = "anim_walk"
+const ANIM_SALTO = "anim_jump"
 
 @onready var pivote_camara: Node3D = $PivoteCamara
 
@@ -22,13 +24,11 @@ func _ready():
 
 
 func _unhandled_input(event):
-	# Girar cámara con el mouse
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		pivote_camara.rotation.y -= event.relative.x * SENSIBILIDAD_MOUSE
 		pivote_camara.rotation.x -= event.relative.y * SENSIBILIDAD_MOUSE
 		pivote_camara.rotation.x = clamp(pivote_camara.rotation.x, deg_to_rad(LIMITE_ABAJO), deg_to_rad(LIMITE_ARRIBA))
 
-	# ESC libera el mouse, un clic lo vuelve a capturar
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if event is InputEventMouseButton and event.pressed and Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
@@ -49,6 +49,10 @@ func _physics_process(delta: float):
 	else:
 		velocity.y = 0.0
 
+	# Salto
+	if Input.is_action_just_pressed("saltar") and is_on_floor():
+		velocity.y = VELOCIDAD_SALTO
+
 	# Movimiento con WASD/flechas, relativo a hacia dónde mira la cámara
 	var input_dir := Input.get_vector("mover a la izquierda", "mover a la derecha", "mover arriba", "mover abajo")
 	var base_camara := Basis(Vector3.UP, pivote_camara.rotation.y)
@@ -57,10 +61,16 @@ func _physics_process(delta: float):
 	if direccion:
 		velocity.x = direccion.x * VELOCIDAD
 		velocity.z = direccion.z * VELOCIDAD
-		reproducir(ANIM_CAMINAR)
 	else:
 		velocity.x = move_toward(velocity.x, 0, VELOCIDAD)
 		velocity.z = move_toward(velocity.z, 0, VELOCIDAD)
+
+	# Animaciones (el salto tiene prioridad sobre las demás)
+	if not is_on_floor():
+		reproducir(ANIM_SALTO)
+	elif direccion:
+		reproducir(ANIM_CAMINAR)
+	else:
 		reproducir(ANIM_QUIETA)
 
 	move_and_slide()

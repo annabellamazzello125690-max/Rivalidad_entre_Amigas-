@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://coxqkd2kas8pv" path="res://assets/escuela/walls/GLB/walldoor_001.glb" id="14_x3esv"]
 [ext_resource type="PackedScene" uid="uid://k1a2p68fvp3a" path="res://assets/escuela/walls/GLB/floorpattern.glb" id="15_wogku"]
 [ext_resource type="PackedScene" uid="uid://dq0flwig0b0q7" path="res://assets/escuela/walls/GLB/walldoor_003.glb" id="16_x3esv"]
+[ext_resource type="PackedScene" uid="uid://c6nce5ru5471" path="res://Personajes/espachina_3d.scn" id="18_1448p"]
 [ext_resource type="PackedScene" uid="uid://qm7wvsl0rgf1" path="res://Personajes/guerrera_3d.tscn" id="18_gq45k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_epin6"]
@@ -398,5 +399,8 @@ debug_color = Color(0.85670656, 0.85670644, 0, 0.41960785)
 
 [node name="guerrera" parent="." unique_id=1142227477 instance=ExtResource("18_gq45k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11597037, -0.14765444, 12.439547)
+
+[node name="espachina_3d" parent="." unique_id=1701021515 instance=ExtResource("18_1448p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36897802, -0.05992651, 5.311546)
 
 [editable path="Piso y puertas/floorpattern2"]

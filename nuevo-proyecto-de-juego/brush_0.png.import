@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://blasn82nmiddx"
-path.s3tc="res://.godot/imported/brush_0.png-a01e42e6551e8d7259f2b14d94b11304.s3tc.ctex"
+path.s3tc="res://.godot/imported/brush_0.png-8f320a8b4c724ccbbed22cf8af53b4b1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Personajes/brush_0.png"
-dest_files=["res://.godot/imported/brush_0.png-a01e42e6551e8d7259f2b14d94b11304.s3tc.ctex"]
+source_file="res://brush_0.png"
+dest_files=["res://.godot/imported/brush_0.png-8f320a8b4c724ccbbed22cf8af53b4b1.s3tc.ctex"]
 
 [params]
 

@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://coxqkd2kas8pv" path="res://assets/escuela/walls/GLB/walldoor_001.glb" id="14_x3esv"]
 [ext_resource type="PackedScene" uid="uid://k1a2p68fvp3a" path="res://assets/escuela/walls/GLB/floorpattern.glb" id="15_wogku"]
 [ext_resource type="PackedScene" uid="uid://dq0flwig0b0q7" path="res://assets/escuela/walls/GLB/walldoor_003.glb" id="16_x3esv"]
+[ext_resource type="PackedScene" uid="uid://bk7fkktvn874i" path="res://Personajes/rosa_maga/maga.tscn" id="18_1448p"]
 [ext_resource type="PackedScene" uid="uid://qm7wvsl0rgf1" path="res://Personajes/guerrera_3d.tscn" id="18_gq45k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_epin6"]
@@ -24,6 +25,7 @@ size = Vector3(40, 1, 60)
 [sub_resource type="BoxShape3D" id="BoxShape3D_iahhd"]
 
 [node name="Escuela" type="Node3D" unique_id=1580166927]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=208865711]
 transform = Transform3D(1, 0, 0, 0, -0.06937236, 0.99759084, 0, -0.99759084, -0.06937236, 6.0068803, 20.728432, -9.620536)
@@ -416,6 +418,9 @@ transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, 0.86
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="paredes_escuela" unique_id=1889737723]
 transform = Transform3D(0.2, 0, 0, 0, 1.502, 0, 0, 0, 0.877, -4.089404, 1.1481429, -0.08021307)
 shape = SubResource("BoxShape3D_iahhd")
+
+[node name="Maga" parent="." unique_id=1722194529 instance=ExtResource("18_1448p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 29.8513)
 
 [editable path="Aulas/classroom_demoscene"]
 [editable path="Pasillo/wall_0021"]

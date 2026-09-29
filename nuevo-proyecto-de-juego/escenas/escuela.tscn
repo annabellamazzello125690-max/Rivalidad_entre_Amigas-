@@ -16,11 +16,12 @@
 [ext_resource type="PackedScene" uid="uid://coxqkd2kas8pv" path="res://assets/escuela/walls/GLB/walldoor_001.glb" id="14_x3esv"]
 [ext_resource type="PackedScene" uid="uid://k1a2p68fvp3a" path="res://assets/escuela/walls/GLB/floorpattern.glb" id="15_wogku"]
 [ext_resource type="PackedScene" uid="uid://dq0flwig0b0q7" path="res://assets/escuela/walls/GLB/walldoor_003.glb" id="16_x3esv"]
-[ext_resource type="PackedScene" uid="uid://bk7fkktvn874i" path="res://Personajes/rosa_maga/maga.tscn" id="18_1448p"]
 [ext_resource type="PackedScene" uid="uid://qm7wvsl0rgf1" path="res://Personajes/guerrera_3d.tscn" id="18_gq45k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_epin6"]
 size = Vector3(40, 1, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iahhd"]
 
 [node name="Escuela" type="Node3D" unique_id=1580166927]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
@@ -29,6 +30,7 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, -0.06937236, 0.99759084, 0, -0.99759084, -0.06937236, 6.0068803, 20.728432, -9.620536)
 
 [node name="Aulas" type="Node3D" parent="." unique_id=1103839219]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="classroom_demoscene" parent="Aulas" unique_id=819719979 instance=ExtResource("1_oxlh1")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3.6866117, 0, -5.281126)
@@ -43,6 +45,7 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3.6
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 18.614504, 0, -30.169659)
 
 [node name="Baños" type="Node3D" parent="." unique_id=936014647]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="toiletdemoscene2" parent="Baños" unique_id=670391258 instance=ExtResource("2_mt2cc")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -4.291931, 0, -23.219912)
@@ -105,6 +108,7 @@ transform = Transform3D(4.127657, 0, 0, 0, 4.127657, 0, 0, 0, 4.127657, 9.809155
 transform = Transform3D(-1.8042562e-07, 0, 4.127657, 0, 4.127657, 0, -4.127657, 0, -1.8042562e-07, 9.064297, 1.420311, -28.66084)
 
 [node name="Direccion" type="Node3D" parent="." unique_id=1222703636]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="PRINCIPALOFFICEdemoscene" parent="Direccion" unique_id=1851605962 instance=ExtResource("6_4qkwh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1110964, 0, 8.045315)
@@ -116,26 +120,31 @@ transform = Transform3D(0.9969292, 0, 0, 0, 1, 0, 0, 0, 1, 6.998872, 0, 14.22547
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.1835117, 0, 12.195534)
 
 [node name="Sala de Arte" type="Node3D" parent="." unique_id=1919237303]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="demoscene" parent="Sala de Arte" unique_id=68474599 instance=ExtResource("6_dgm2e")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -4.6040964, 0, 4.462199)
 
 [node name="Cafeteria" type="Node3D" parent="." unique_id=1277041464]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="CAFETERIAdemoscene2" parent="Cafeteria" unique_id=688118120 instance=ExtResource("7_ak8b8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.252726, 0, -0.46738005)
 
 [node name="Laboratorio" type="Node3D" parent="." unique_id=1359608698]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="CHEMISTRYlabdemoscene2" parent="Laboratorio" unique_id=253613003 instance=ExtResource("8_wkv31")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.380278, -9.536743e-07, -10.436731)
 
 [node name="Computacion" type="Node3D" parent="." unique_id=890915088]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="COMPUTERdemoscene2" parent="Computacion" unique_id=521953465 instance=ExtResource("9_4qkwh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.384096, 0, -20.175278)
 
 [node name="Pasillo" type="Node3D" parent="." unique_id=1433118027]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="wall_0032" parent="Pasillo" unique_id=1912511792 instance=ExtResource("12_bideo")]
 transform = Transform3D(1.6085157, 0, 0, 0, 1.710914, 0, 0, 0, 1.451035, -7.0551143, 1.5391583, 15.609506)
@@ -312,6 +321,7 @@ transform = Transform3D(-7.779601e-08, 0, 1, 0, 1.64977, 0, -1.7797652, 0, -4.37
 transform = Transform3D(-3.349868e-08, 0, 1, 0, 1.7699351, 0, -0.7663604, 0, -4.371139e-08, -2.3, 1.462, 16.288)
 
 [node name="Piso y puertas" type="Node3D" parent="." unique_id=1220744776]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="floorpattern2" parent="Piso y puertas" unique_id=38051878 instance=ExtResource("15_wogku")]
 transform = Transform3D(1.3871746, 0, 0, 0, 1, 0, 0, 0, 2.4431677, 1.7454765, 0, 14.520242)
@@ -394,16 +404,20 @@ transform = Transform3D(2.7416658, 0, 0, 0, 1.642249, 0, 0, 0, 1, 0.43606412, 1.
 [node name="Sueloescuela" type="StaticBody3D" parent="." unique_id=1052206039]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sueloescuela" unique_id=91280098]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6484027, -0.559927, -9.898737)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 15.1544, -1.0003757, -19.537561)
 shape = SubResource("BoxShape3D_epin6")
 debug_color = Color(0.85670656, 0.85670644, 0, 0.41960785)
 
 [node name="guerrera" parent="." unique_id=1142227477 instance=ExtResource("18_gq45k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11597037, -0.14765444, 12.439547)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.523524, -0.13597992, 30.921118)
 
-[node name="Maga" parent="." unique_id=1722194529 instance=ExtResource("18_1448p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14.528518)
+[node name="paredes_escuela" type="StaticBody3D" parent="." unique_id=931477624]
+transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, 0.86555815, 0, -10.56225)
 
-[editable path="Sala de Arte/demoscene"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="paredes_escuela" unique_id=1889737723]
+transform = Transform3D(0.2, 0, 0, 0, 1.502, 0, 0, 0, 0.877, -4.089404, 1.1481429, -0.08021307)
+shape = SubResource("BoxShape3D_iahhd")
+
+[editable path="Aulas/classroom_demoscene"]
+[editable path="Pasillo/wall_0021"]
 [editable path="Piso y puertas/floorpattern2"]

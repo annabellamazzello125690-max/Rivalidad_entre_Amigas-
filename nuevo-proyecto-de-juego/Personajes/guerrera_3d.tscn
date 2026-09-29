@@ -2,10 +2,50 @@
 
 [ext_resource type="Script" uid="uid://cpme3f1q02kf5" path="res://Personajes/guerrera.gd" id="1_wfx24"]
 [ext_resource type="PackedScene" uid="uid://l2ufhnutgqye" path="res://assets/ChibiCharactersV1.2 pj/ChibiCharacters/glb/knightpr.glb" id="2_l45rj"]
+[ext_resource type="PackedScene" uid="uid://dd76ue111y375" path="res://assets/GameReady_FBX/Axe_TwoHanded_Set_A.fbx" id="3_cdtf5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_epin6"]
 radius = 0.5527344
 height = 2.5141602
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tpinl"]
+size = Vector3(0.2, 2, 1)
+
+[sub_resource type="Animation" id="Animation_cdtf5"]
+
+[sub_resource type="Animation" id="Animation_t7m3p"]
+resource_name = "gope_normal"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("root_armature_knight/Skeleton3D/BoneAttachment3D/Axe_TwoHanded_Set_A:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1.0156479, -1.2476654, -1.2935475), Vector3(0.6214132, -0.49557298, -0.7370526), Vector3(1.0156479, -1.2476654, -1.2935475)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.01, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -3.1415925, 0), Vector3(0, -3.1415925, 0), Vector3(0, -3.1415925, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yb64j"]
+_data = {
+&"attackanim_": SubResource("Animation_cdtf5"),
+&"gope_normal": SubResource("Animation_t7m3p")
+}
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_epin6"]
 
@@ -17,7 +57,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00026154518, 1.362151, -0.0
 shape = SubResource("CapsuleShape3D_epin6")
 
 [node name="knightpr" parent="." unique_id=201142514 instance=ExtResource("2_l45rj")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.1605835, -0.02663982)
+transform = Transform3D(-0.9999998, 0, -1.5099577e-07, 0, 0.99999994, 0, 1.5099577e-07, 0, -0.9999998, 0, 0.1605835, -0.02663982)
 
 [node name="Skeleton3D" parent="knightpr/root_armature_knight" parent_id_path=PackedInt32Array(201142514, 638917156) index="0" unique_id=130783000]
 bones/0/position = Vector3(0.026234698, 0.6403979, -0.029604968)
@@ -77,6 +117,23 @@ bones/76/position = Vector3(8.221832e-09, 0.15060005, 2.1681672e-08)
 bones/76/rotation = Quaternion(-0.5973216, -0.014216203, 0.02115678, 0.80159676)
 bones/77/position = Vector3(-7.37926e-09, 0.079086356, -5.5114135e-09)
 bones/77/rotation = Quaternion(-0.011895538, 0.9665403, -0.25622147, -0.0029811885)
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="knightpr/root_armature_knight/Skeleton3D" index="16" unique_id=1936880944]
+transform = Transform3D(-0.95542765, 0.2854616, 0.07529465, -0.28788096, -0.9573825, -0.023286892, 0.065438166, -0.043924704, 0.9968893, 0.29235014, 0.6189989, -0.09208397)
+bone_name = "DEF-hand.L"
+bone_idx = 17
+
+[node name="Axe_TwoHanded_Set_A" parent="knightpr/root_armature_knight/Skeleton3D/BoneAttachment3D" unique_id=794618875 instance=ExtResource("3_cdtf5")]
+transform = Transform3D(0.86198014, 0.08484387, -0.49979144, -0.5069416, 0.14426447, -0.8498222, -5.960463e-08, 0.9858951, 0.16736406, 0, 0.07, 0)
+
+[node name="Area_ataque" type="Area3D" parent="knightpr/root_armature_knight/Skeleton3D/BoneAttachment3D/Axe_TwoHanded_Set_A" unique_id=1113395815]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="knightpr/root_armature_knight/Skeleton3D/BoneAttachment3D/Axe_TwoHanded_Set_A/Area_ataque" unique_id=484723001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4505806e-08, 0.5256007, -0.0103857815)
+shape = SubResource("BoxShape3D_tpinl")
+
+[node name="AnimationPlayer" parent="knightpr" index="1" unique_id=2142506418]
+libraries/combate = SubResource("AnimationLibrary_yb64j")
 
 [node name="PivoteCamara" type="Node3D" parent="." unique_id=1329162509]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, -0.007)

@@ -8,9 +8,12 @@ const SENSIBILIDAD_RATON = 0.003
 const ANIM_QUIETA = "iddleanim_"
 const ANIM_CAMINAR = "walkanim_"
 const ANIM_SALTO = "jumpanim_"
+const ANIM_ATAQUE = "combate/gope_normal"
 
 var gravedad = ProjectSettings.get_setting("physics/3d/default_gravity")
+var atacando: bool = false
 
+@onready var colision_espada: CollisionShape3D = find_child("CollisionShape3D", true, false) # O la ruta a la colisión del arma
 @onready var visual: Node3D = get_node_or_null("knightpr")
 @onready var pivote_camara: Node3D = $PivoteCamara
 @onready var camara: Camera3D = find_child("Camera3D", true, false)
@@ -40,6 +43,30 @@ func _unhandled_input(event: InputEvent) -> void:
 		if spring_arm:
 			spring_arm.rotate_x(-event.relative.y * SENSIBILIDAD_RATON)
 			spring_arm.rotation.x = clampf(spring_arm.rotation.x, -0.6, 0.5)
+		
+		# Atacar con el clic izquierdo del ratón
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		if not atacando and is_on_floor():
+			ejecutar_ataque()
+
+func ejecutar_ataque() -> void:
+	atacando = true
+	velocity.x = 0.0
+	velocity.z = 0.0
+	reproducir(ANIM_ATAQUE)
+	
+	# Si tienes AnimationPlayer con señal animation_finished, puedes usar await:
+	if anim_player and anim_player.has_animation(ANIM_ATAQUE):
+		await anim_player.animation_finished
+	else:
+		await get_tree().create_timer(0.4).timeout # Tiempo de respaldo si no encuentra la animación
+	
+	atacando = false
+
+# Asegúrate de conectar la señal de fin de animación en _ready si prefieres:
+func _on_animation_finished(anim_name: StringName) -> void:
+	if anim_name == ANIM_ATAQUE:
+		atacando = false
 
 func reproducir(anim: String) -> void:
 	if anim_player and anim_player.has_animation(anim):
@@ -47,9 +74,13 @@ func reproducir(anim: String) -> void:
 			anim_player.play(anim)
 
 func _physics_process(delta: float) -> void:
+
 	# 1. Gravedad
 	if not is_on_floor():
 		velocity.y -= gravedad * delta
+	if atacando:
+		move_and_slide()
+		return
 
 	# 2. Salto
 	if Input.is_key_pressed(KEY_SPACE) and is_on_floor():

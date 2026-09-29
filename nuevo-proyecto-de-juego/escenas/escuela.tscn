@@ -23,6 +23,7 @@
 size = Vector3(40, 1, 60)
 
 [node name="Escuela" type="Node3D" unique_id=1580166927]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=208865711]
 transform = Transform3D(1, 0, 0, 0, -0.06937236, 0.99759084, 0, -0.99759084, -0.06937236, 6.0068803, 20.728432, -9.620536)

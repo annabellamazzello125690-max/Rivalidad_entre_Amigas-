@@ -10,10 +10,11 @@ const VELOCIDAD = 5.0
 const VELOCIDAD_SALTO = 4.5
 const SENSIBILIDAD_RATON = 0.003
 
-# Nombres exactos encontrados en tu modelo
-const ANIM_QUIETA = "iddleanim_"
-const ANIM_CAMINAR = "walkanim_"
-const ANIM_SALTO = "jumpanim_"
+@export_group("Animaciones")
+@export var anim_quieta: String = "iddleanim_"
+@export var anim_caminar: String = "walkanim_"
+@export var anim_salto: String = "jumpanim_"
+
 
 var gravedad = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -112,11 +113,11 @@ func _physics_process(delta: float) -> void:
 
 	# 6. Reproducir animaciones según el estado
 	if not is_on_floor():
-		reproducir(ANIM_SALTO)
+		reproducir(anim_salto)
 	elif direccion != Vector3.ZERO:
-		reproducir(ANIM_CAMINAR)
+		reproducir(anim_caminar)
 	else:
-		reproducir(ANIM_QUIETA)
+		reproducir(anim_quieta)
 
 	# 7. Mover
 	move_and_slide()

@@ -104,9 +104,8 @@ func _physics_process(delta: float) -> void:
 		velocity.z = direccion.z * VELOCIDAD
 
 		if visual:
-			# Usamos global_rotation para que coincida con el espacio del mundo
 			var angulo_objetivo = atan2(direccion.x, direccion.z)
-			visual.global_rotation.y = lerp_angle(visual.global_rotation.y, angulo_objetivo, delta * 12.0)
+			visual.rotation.y = lerp_angle(visual.rotation.y, angulo_objetivo, delta * 12.0)
 	else:
 		velocity.x = move_toward(velocity.x, 0.0, VELOCIDAD)
 		velocity.z = move_toward(velocity.z, 0.0, VELOCIDAD)

@@ -1,6 +1,5 @@
 class_name PersonajeBase
 extends CharacterBody3D
-signal vida_cambiada(actual: int, maxima: int)
 
 @export var vida_maxima: int = 100
 var vida_actual: int = 100
@@ -26,6 +25,7 @@ var anim_player: AnimationPlayer
 
 func _ready() -> void:
 	vida_actual = vida_maxima
+	EventosJuego.publicar_vida(vida_actual, vida_maxima) # <-- AGREGAR ESTA LÍNEA
 	anim_player = find_child("AnimationPlayer", true, false)
 	# Capturar y ocultar el cursor dentro de la ventana de juego
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -126,7 +126,7 @@ func recibir_dano(cantidad: int) -> void:
 		return
 	vida_actual = clampi(vida_actual - cantidad, 0, vida_maxima)
 	print("Vida: ", vida_actual, "/", vida_maxima)
-	vida_cambiada.emit(vida_actual, vida_maxima)
+	EventosJuego.publicar_vida(vida_actual, vida_maxima)
 	if vida_actual <= 0:
 		morir()
 
@@ -135,10 +135,10 @@ func curar(cantidad: int) -> void:
 		return
 	vida_actual = clampi(vida_actual + cantidad, 0, vida_maxima)
 	print("Vida: ", vida_actual, "/", vida_maxima)
-	vida_cambiada.emit(vida_actual, vida_maxima)
-
+	EventosJuego.publicar_vida(vida_actual, vida_maxima)
 func morir() -> void:
 	esta_muerta = true
 	velocity = Vector3.ZERO
 	print("El personaje ha muerto.")
 	reproducir(anim_muerte)
+	GameManager.game_over()

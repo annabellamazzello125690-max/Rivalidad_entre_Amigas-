@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://byrjw6komb3au"]
+
+[node name="pantalla_game_over" type="Control" unique_id=2067723548]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GameOver" type="ColorRect" parent="." unique_id=1041524513]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 650.0
+color = Color(0.9863669, 0.4541151, 0.28304943, 1)
+
+[node name="Derota" type="Label" parent="GameOver" unique_id=1985083291]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = -203.0
+offset_right = 112.0
+offset_bottom = -180.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(3, 3)
+text = "\"¡HAS SIDO DERROTADA!\""
+
+[node name="BotonReiniciar" type="Button" parent="GameOver" unique_id=613655064]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.5
+offset_top = -15.5
+offset_right = 59.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.1921386, 2.0155218)
+text = "\"REINTENTAR\""

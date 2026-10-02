@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://uixfpn2fhh3a"]
+
+[node name="PantallaVictoria" type="Control" unique_id=1962824507]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=196892885]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1112.0
+offset_bottom = 608.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.9963853, 0.47468406, 0.3583634, 1)
+
+[node name="Vitoria" type="Label" parent="ColorRect" unique_id=1563367772]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = -157.0
+offset_right = 39.0
+offset_bottom = -134.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(3, 3)
+text = "¡VICTORIA!"
+
+[node name="BotonReiniciar" type="Button" parent="ColorRect" unique_id=1911739985]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.99997
+offset_top = -31.0
+offset_right = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0985155, 1.8785733)
+text = "JUGAR DE NUEVO"

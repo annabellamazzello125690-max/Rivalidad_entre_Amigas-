@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://8vbdgta6t018"]
+
+[ext_resource type="Script" uid="uid://chfcpu47uytn8" path="res://ui/hud_controller.gd" id="1_rbyyf"]
+
+[node name="HUD" type="Control" unique_id=603160598]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_rbyyf")
+
+[node name="BarraVida" type="TextureProgressBar" parent="." unique_id=1390398813]
+layout_mode = 0
+offset_right = 1155.0
+offset_bottom = 647.0
+
+[node name="TextoVida" type="Label" parent="." unique_id=349580505]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 12.0
+offset_right = 88.0
+offset_bottom = 35.0
+text = "100/100"
+
+[node name="TextoPuntuacion" type="Label" parent="." unique_id=1630277413]
+layout_mode = 0
+offset_left = 1066.0
+offset_top = 20.0
+offset_right = 1127.0
+offset_bottom = 52.0
+text = "0"

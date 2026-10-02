@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c5jufec6jdkm0"]
+
+[ext_resource type="Script" uid="uid://dnxill57muyim" path="res://pantallas_controller.gd" id="1_hh6cp"]
+[ext_resource type="PackedScene" uid="uid://dmkb7pt7n0uid" path="res://ui/menu_inicio.tscn" id="2_ykj6t"]
+[ext_resource type="PackedScene" uid="uid://8vbdgta6t018" path="res://ui/hud.tscn" id="3_d5p2u"]
+[ext_resource type="PackedScene" uid="uid://byrjw6komb3au" path="res://ui/pantalla_game_over.tscn" id="4_w4kly"]
+[ext_resource type="PackedScene" uid="uid://uixfpn2fhh3a" path="res://ui/pantalla_victoria.tscn" id="5_ewxe3"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1754798339]
+
+[node name="PantallasController" type="Control" parent="." unique_id=779806192]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1150.0
+offset_bottom = 649.0
+script = ExtResource("1_hh6cp")
+
+[node name="MenuInicio" parent="PantallasController" unique_id=2135174316 instance=ExtResource("2_ykj6t")]
+layout_mode = 0
+
+[node name="HUD" parent="PantallasController" unique_id=603160598 instance=ExtResource("3_d5p2u")]
+layout_mode = 0
+
+[node name="PantallaGameOver" parent="PantallasController" unique_id=2067723548 instance=ExtResource("4_w4kly")]
+layout_mode = 0
+
+[node name="PantallaVictoria" parent="PantallasController" unique_id=1962824507 instance=ExtResource("5_ewxe3")]
+layout_mode = 0

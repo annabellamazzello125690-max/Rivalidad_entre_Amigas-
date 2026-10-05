@@ -1,45 +1,75 @@
 extends Control
 
-@onready var menu_inicio: Control = $MenuInicio
-@onready var hud: Control = $HUD
-@onready var pantalla_game_over: Control = $PantallaGameOver
-@onready var pantalla_victoria: Control = $PantallaVictoria
+@onready var menu_inicio: Control = get_node_or_null("MenuInicio")
+@onready var hud: Control = get_node_or_null("HUD")
+@onready var pantalla_game_over: Control = get_node_or_null("PantallaGameOver")
+@onready var pantalla_victoria: Control = get_node_or_null("PantallaVictoria")
 
-@onready var boton_jugar: Button = $MenuInicio/BotonJugar
-@onready var boton_reiniciar_derrota: Button = $PantallaGameOver/GameOver/BotonReiniciar
-@onready var boton_reiniciar_victoria: Button = $PantallaVictoria/ColorRect/BotonReiniciar
+@onready var boton_jugar: Button = get_node_or_null("MenuInicio/VBoxContainer/BotonJugar")
+@onready var boton_reiniciar_derrota: Button = get_node_or_null("PantallaGameOver/GameOver/BotonReiniciar")
+@onready var boton_reiniciar_victoria: Button = get_node_or_null("PantallaVictoria/ColorRect/BotonReiniciar")
 
 func _ready() -> void:
-	# Conectar botones
-	if boton_jugar:
+	# 1. Conexiones seguras de botones
+	if boton_jugar and not boton_jugar.pressed.is_connected(_al_pulsar_jugar):
 		boton_jugar.pressed.connect(_al_pulsar_jugar)
-	if boton_reiniciar_derrota:
+	if boton_reiniciar_derrota and not boton_reiniciar_derrota.pressed.is_connected(GameManager.reiniciar_juego):
 		boton_reiniciar_derrota.pressed.connect(GameManager.reiniciar_juego)
-	if boton_reiniciar_victoria:
+	if boton_reiniciar_victoria and not boton_reiniciar_victoria.pressed.is_connected(GameManager.reiniciar_juego):
 		boton_reiniciar_victoria.pressed.connect(GameManager.reiniciar_juego)
 
-	# Suscribirse al evento del bus
-	EventosJuego.estado_cambio.connect(cambiar_pantalla)
+	# 2. Suscripción al bus de eventos
+	if not EventosJuego.estado_cambio.is_connected(cambiar_pantalla):
+		EventosJuego.estado_cambio.connect(cambiar_pantalla)
 
-	# Estado inicial
-	cambiar_pantalla(EventosJuego.estado)
+	# 3. Lógica automática de pantallas:
+	# Si ya estamos dentro del mapa de la escuela, forzamos combate (HUD).
+	# Si estamos en cualquier otra escena (menú), mostramos el menú de inicio.
+	if get_tree().current_scene and get_tree().current_scene.name == "Escuela":
+		mostrar_solo("HUD")
+	else:
+		mostrar_solo("MENU")
+
+	# Si es el cliente en el lobby, deshabilitamos el botón hasta que el host inicie
+	if boton_jugar and multiplayer.has_multiplayer_peer() and not multiplayer.is_server():
+		boton_jugar.disabled = true
+		boton_jugar.text = "Esperando al Host..."
 
 func _al_pulsar_jugar() -> void:
-	print("¡Click en JUGAR! Iniciando combate...")
-	GameManager.iniciar_juego()
+	if boton_jugar:
+		boton_jugar.disabled = true
 
-func cambiar_pantalla(estado: EventosJuego.EstadoJuego) -> void:
-	var es_menu: bool = (estado == EventosJuego.EstadoJuego.MENU)
-	var es_jugando: bool = (estado == EventosJuego.EstadoJuego.JUGANDO or estado == EventosJuego.EstadoJuego.PAUSA)
-	var es_game_over: bool = (estado == EventosJuego.EstadoJuego.GAME_OVER)
-	var es_victoria: bool = (estado == EventosJuego.EstadoJuego.VICTORIA)
+	if multiplayer.has_multiplayer_peer():
+		if multiplayer.is_server():
+			print("¡Host inició el combate! Sincronizando con todos...")
+			RedManager.cargar_partida_escuela.rpc()
+	else:
+		mostrar_solo("HUD")
+		GameManager.iniciar_juego()
 
-	menu_inicio.visible = es_menu
-	hud.visible = es_jugando
-	pantalla_game_over.visible = es_game_over
-	pantalla_victoria.visible = es_victoria
+# Función que apaga TODO y enciende SOLO lo que se le pide
+func mostrar_solo(nombre_pantalla: String) -> void:
+	if menu_inicio:
+		menu_inicio.visible = (nombre_pantalla == "MENU")
+	if hud:
+		hud.visible = (nombre_pantalla == "HUD")
+	if pantalla_game_over:
+		pantalla_game_over.visible = (nombre_pantalla == "GAME_OVER")
+	if pantalla_victoria:
+		pantalla_victoria.visible = (nombre_pantalla == "VICTORIA")
 
-	if es_jugando:
+	if nombre_pantalla == "HUD":
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+func cambiar_pantalla(estado: EventosJuego.EstadoJuego) -> void:
+	match estado:
+		EventosJuego.EstadoJuego.MENU:
+			mostrar_solo("MENU")
+		EventosJuego.EstadoJuego.JUGANDO, EventosJuego.EstadoJuego.PAUSA:
+			mostrar_solo("HUD")
+		EventosJuego.EstadoJuego.GAME_OVER:
+			mostrar_solo("GAME_OVER")
+		EventosJuego.EstadoJuego.VICTORIA:
+			mostrar_solo("VICTORIA")

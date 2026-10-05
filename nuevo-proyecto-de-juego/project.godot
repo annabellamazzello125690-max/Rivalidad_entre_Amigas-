@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Nuevo Proyecto de Juego"
-run/main_scene="uid://bk7fkktvn874i"
+run/main_scene="uid://v1up58sn24pt"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 EventosJuego="*uid://cjw3kb72o5rjo"
 GameManager="*uid://chrlwp8c6pugq"
+RedManager="*uid://ccxguarwe7kbd"
 
 [file_customization]
 

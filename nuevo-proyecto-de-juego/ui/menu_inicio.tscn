@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dmkb7pt7n0uid"]
+
+[node name="MenuInicio" type="Control" unique_id=2135174316]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1155.0
+offset_bottom = 648.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1976572790]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.0
+offset_top = -42.5
+offset_right = 91.0
+offset_bottom = 42.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="Titulo" type="Label" parent="VBoxContainer" unique_id=2058377446]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(5, 5)
+text = "Rivalidad entre Amigas "
+
+[node name="Subtitulo" type="Label" parent="VBoxContainer" unique_id=898709513]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(2.5, 2.5)
+text = "Derrota a tus rivales"
+
+[node name="BotonJugar" type="Button" parent="VBoxContainer" unique_id=1819815162]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(2.5, 2.5)
+text = "Jugar"
+
+[node name="BotonSalir" type="Button" parent="VBoxContainer" unique_id=1118484496]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(2.5, 2.5)
+text = "Salir"

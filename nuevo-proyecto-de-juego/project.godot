@@ -11,9 +11,15 @@ config_version=5
 [application]
 
 config/name="Nuevo Proyecto de Juego"
-run/main_scene="uid://c6nce5ru5471"
-config/features=PackedStringArray("4.6", "GL Compatibility")
+run/main_scene="uid://v1up58sn24pt"
+config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+EventosJuego="*uid://cjw3kb72o5rjo"
+GameManager="*uid://chrlwp8c6pugq"
+RedManager="*uid://ccxguarwe7kbd"
 
 [file_customization]
 

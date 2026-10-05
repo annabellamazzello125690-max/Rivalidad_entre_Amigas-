@@ -44,7 +44,7 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yb64j"]
 _data = {
 &"attackanim_": SubResource("Animation_cdtf5"),
-&"gope_normal": SubResource("Animation_t7m3p")
+&"golpe_normal": SubResource("Animation_t7m3p")
 }
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_epin6"]

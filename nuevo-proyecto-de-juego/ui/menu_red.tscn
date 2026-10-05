@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://v1up58sn24pt"]
+
+[ext_resource type="Script" uid="uid://blgmo5hylea5x" path="res://ui/menu_red.gd" id="1_e2ufx"]
+
+[node name="MenuRed" type="Control" unique_id=167434557]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e2ufx")
+
+[node name="ButtonClient" type="Button" parent="." unique_id=748673438]
+layout_mode = 1
+offset_left = 631.0
+offset_top = 377.0
+offset_right = 703.0
+offset_bottom = 408.0
+offset_transform_enabled = true
+offset_transform_scale = Vector2(2, 2)
+text = "CLIENTE"
+
+[node name="LineEditPuerto" type="LineEdit" parent="." unique_id=1469661962]
+layout_mode = 0
+offset_left = 327.0
+offset_top = 217.0
+offset_right = 455.0
+offset_bottom = 248.0
+placeholder_text = "Puerto:"
+
+[node name="LineEditIp" type="LineEdit" parent="." unique_id=521700905]
+layout_mode = 0
+offset_left = 526.0
+offset_top = 216.0
+offset_right = 598.0
+offset_bottom = 247.0
+scale = Vector2(3.1409006, 0.95370346)
+offset_transform_enabled = true
+placeholder_text = "IP"
+
+[node name="ButtonHost" type="Button" parent="." unique_id=252547773]
+layout_mode = 0
+offset_left = 358.0
+offset_top = 376.0
+offset_right = 430.0
+offset_bottom = 407.0
+offset_transform_enabled = true
+offset_transform_scale = Vector2(2, 2)
+text = "HOST"

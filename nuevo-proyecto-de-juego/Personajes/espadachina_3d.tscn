@@ -8,7 +8,7 @@
 height = 2.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_epin6"]
-size = Vector3(0.1, 1, 0.2)
+size = Vector3(0.1, 1.4, 0.2)
 
 [sub_resource type="Animation" id="Animation_qua53"]
 tracks/0/type = "value"
@@ -109,9 +109,11 @@ bone_idx = 17
 transform = Transform3D(1, 0, 0, 0, -0.25994363, -0.9656238, 0, 0.9656238, -0.25994363, 1.36788e-09, 0.06638315, 0.0048395125)
 
 [node name="Area3D" type="Area3D" parent="studentpr/root_armature_student/Skeleton3D/BoneAttachment3D/Dagger_Set_A" unique_id=331038435]
+monitoring = false
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="studentpr/root_armature_student/Skeleton3D/BoneAttachment3D/Dagger_Set_A/Area3D" unique_id=618831178]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.872019e-08, 0.2587716, -0.010623051)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7695129e-08, 0.49108544, -0.012547458)
 shape = SubResource("BoxShape3D_epin6")
 
 [node name="AnimationPlayer" parent="studentpr" index="1" unique_id=236636232]
@@ -126,6 +128,5 @@ spring_length = 1.5
 
 [node name="Camera3D" type="Camera3D" parent="PivoteCamara/SpringArm3D" unique_id=94371754]
 transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 0, 0)
-current = true
 
 [editable path="studentpr"]

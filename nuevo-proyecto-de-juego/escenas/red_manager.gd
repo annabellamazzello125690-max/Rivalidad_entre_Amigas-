@@ -125,4 +125,10 @@ func spawnear_personaje(peer_id: int, tipo_personaje: int) -> void:
 	# Asignar la autoridad de red al peer correspondiente
 	nuevo_pj.set_multiplayer_authority(peer_id)
 	mapa_escuela.add_child(nuevo_pj)
+	
+	# --- ACTIVAR CÁMARA LOCAL ---
+	var cam = nuevo_pj.find_child("Camera3D", true, false)
+	if cam:
+		cam.current = (peer_id == multiplayer.get_unique_id())
+		
 	print(">>> ¡PERSONAJE SPAWNEADO! ID: ", peer_id, " (Tipo: ", tipo_personaje, ") en Escuela.")

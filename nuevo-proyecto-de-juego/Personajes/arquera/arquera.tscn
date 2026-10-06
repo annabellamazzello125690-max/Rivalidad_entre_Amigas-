@@ -1,23 +1,26 @@
-[gd_scene format=3 uid="uid://bk7fkktvn874i"]
+[gd_scene format=3 uid="uid://bttlq4bxdpbmm"]
 
-[ext_resource type="PackedScene" uid="uid://bjso4fpsri3pt" path="res://assets/ChibiCharactersV1.2 pj/ChibiCharacters/glb/merchantpr.glb" id="1_w35pe"]
-[ext_resource type="Script" uid="uid://hic3dnapkan6" path="res://Personajes/rosa_maga/maga.gd" id="1_ydkek"]
+[ext_resource type="Script" uid="uid://ckqh4m6w226vp" path="res://Personajes/arquera/arquera.gd" id="1_016dy"]
+[ext_resource type="PackedScene" uid="uid://b7o5cmovminm8" path="res://assets/ChibiCharactersV1.2 pj/ChibiCharacters/glb/archerpr.glb" id="2_r4n8j"]
+[ext_resource type="ArrayMesh" uid="uid://c3lf560wmqpi6" path="res://bow_teamBlue.obj" id="3_6krfm"]
+[ext_resource type="PackedScene" uid="uid://lyetvc8dop0q" path="res://Personajes/arquera/flecha.tscn" id="4_q8v1m"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_unay4"]
-height = 2.1987305
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tqp8x"]
+radius = 0.35546875
+height = 2.3181152
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gqdpc"]
+[node name="Arquera" type="CharacterBody3D" unique_id=1279964139]
+script = ExtResource("1_016dy")
+flecha_escena = ExtResource("4_q8v1m")
+invertir_frente = false
 
-[node name="Maga" type="CharacterBody3D" unique_id=1722194529]
-script = ExtResource("1_ydkek")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1093219333]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.129358, -0.0370214)
+shape = SubResource("CapsuleShape3D_tqp8x")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=915981501]
-transform = Transform3D(1, 0, 0, 0, 0.9554018, 0.29530907, 0, -0.29530907, 0.9554018, 0, 3.5940294, 6.6294966)
+[node name="archerpr" parent="." unique_id=1617824520 instance=ExtResource("2_r4n8j")]
 
-[node name="merchantpr" parent="." unique_id=1537726533 instance=ExtResource("1_w35pe")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
-
-[node name="Skeleton3D" parent="merchantpr/root_armature_merchant" parent_id_path=PackedInt32Array(1537726533, 357258255) index="0" unique_id=1875594949]
+[node name="Skeleton3D" parent="archerpr/root_armature_archer" parent_id_path=PackedInt32Array(1617824520, 1325228124) index="0" unique_id=2052591573]
 bones/0/position = Vector3(0.026234698, 0.6403979, -0.029604968)
 bones/0/rotation = Quaternion(0.08793445, -0.110161245, 0.07070813, 0.9874879)
 bones/1/rotation = Quaternion(-0.055639748, -0.0017020326, -0.029503146, 0.99801356)
@@ -75,20 +78,26 @@ bones/76/rotation = Quaternion(-0.5973216, -0.014216203, 0.02115678, 0.80159676)
 bones/77/position = Vector3(-7.37926e-09, 0.079086356, -5.5114135e-09)
 bones/77/rotation = Quaternion(-0.011895538, 0.9665403, -0.25622147, -0.0029811885)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1912957824]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2749522, -0.10621834)
-shape = SubResource("CapsuleShape3D_unay4")
+[node name="BowTeamBlue" type="MeshInstance3D" parent="archerpr/root_armature_archer/Skeleton3D" index="9" unique_id=659424010]
+transform = Transform3D(-0.05582073, -0.1948371, -0.97924614, 0.3008862, 0.9318981, -0.20256808, 0.9520249, -0.305949, 0.006604522, 0.22910947, 0.47865057, -0.08431232)
+mesh = ExtResource("3_6krfm")
 
-[node name="GestorDeVidaHP" type="Area3D" parent="." unique_id=169431528]
+[node name="PivoteCamara" type="Node3D" parent="." unique_id=141217683]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GestorDeVidaHP" unique_id=363088335]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2741154, 0)
-shape = SubResource("CapsuleShape3D_gqdpc")
+[node name="SpringArm3D" type="SpringArm3D" parent="PivoteCamara" unique_id=2121213382]
+spring_length = 4.0
 
-[node name="PivoteCamara" type="Node3D" parent="." unique_id=832229028]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+[node name="Camera3D" type="Camera3D" parent="PivoteCamara/SpringArm3D" unique_id=100987273]
+fov = 77.63642
 
-[node name="Camera3D" type="Camera3D" parent="PivoteCamara" unique_id=1138184407]
-transform = Transform3D(1, 0, 0, 0, 0.98971313, 0.14306615, 0, -0.14306615, 0.98971313, 0, 1.4847796, 4.3121367)
+[node name="PuntoDisparo" type="Marker3D" parent="." unique_id=1907770384]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
 
-[editable path="merchantpr"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=176845868]
+transform = Transform3D(-0.15604113, 0.15731546, -0.9751426, -0.035715513, 0.9856915, 0.16473243, 0.9871047, 0.060532745, -0.14818981, -2.5824728, 2.4301038, -0.55999315)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=1636000116]
+transform = Transform3D(-0.6889248, 0, 0.7248327, -0.075075045, -0.9946216, -0.07135586, 0.7209343, -0.103575654, 0.68521947, 3.593596, 0, 0)
+
+[editable path="archerpr"]

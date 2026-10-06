@@ -4,6 +4,9 @@ extends CharacterBody3D
 @export var vida_maxima: int = 100
 var vida_actual: int = 100
 var esta_muerta: bool = false
+var atacando: bool = false
+@export var dano_ataque: int = 20
+@export var rango_ataque: float = 2.5
 var anim_muerte: String = "anim_dying"
 const VELOCIDAD = 5.0
 const VELOCIDAD_SALTO = 4.5
@@ -26,7 +29,6 @@ var anim_player: AnimationPlayer
 func _ready() -> void:
 	vida_actual = vida_maxima
 	anim_player = find_child("AnimationPlayer", true, false)
-	
 	if spring_arm:
 		spring_arm.add_excluded_object(get_rid())
 
@@ -181,9 +183,66 @@ func curar(cantidad: int) -> void:
 	vida_actual = clampi(vida_actual + cantidad, 0, vida_maxima)
 	print("Vida: ", vida_actual, "/", vida_maxima)
 	EventosJuego.publicar_vida(vida_actual, vida_maxima)
+@rpc("any_peer", "call_local", "reliable")
 func morir() -> void:
 	esta_muerta = true
 	velocity = Vector3.ZERO
-	print("El personaje ha muerto.")
-	reproducir(anim_muerte)
-	GameManager.game_over()
+	reproducir("death")
+	
+	# Liberamos el cursor para que se pueda interactuar con la pantalla final
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
+	# Si este personaje es el que yo controlo: perdí
+	if is_multiplayer_authority():
+		EventosJuego.publicar_estado(EventosJuego.EstadoJuego.GAME_OVER)
+	else:
+		# Si el personaje que murió era el rival: gané
+		EventosJuego.publicar_estado(EventosJuego.EstadoJuego.VICTORIA)
+
+func aplicar_dano_autoritario(cantidad: int) -> void:
+	if not multiplayer.is_server() or esta_muerta:
+		return
+
+	vida_actual = clampi(vida_actual - cantidad, 0, vida_maxima)
+	print("> Servidor: Daño aplicado a ", name, " | Vida restante: ", vida_actual)
+	
+	sincronizar_vida.rpc(vida_actual)
+	
+	if vida_actual <= 0:
+		morir.rpc()
+
+@rpc("any_peer", "call_local", "reliable")
+func sincronizar_vida(nueva_vida: int) -> void:
+	vida_actual = nueva_vida
+	if is_multiplayer_authority():
+		EventosJuego.publicar_vida(vida_actual, vida_maxima)
+@rpc("any_peer", "call_local", "reliable")
+func ejecutar_ataque_red() -> void:
+	if atacando or esta_muerta:
+		return
+		
+	atacando = true
+	velocity.x = 0.0
+	velocity.z = 0.0
+	var anim_a_reproducir = get("ANIM_ATAQUE") if get("ANIM_ATAQUE") != null else "attack"
+	reproducir(anim_a_reproducir)
+	
+	if multiplayer.is_server():
+		_verificar_impacto_servidor()
+		
+	if anim_player and anim_player.has_animation(anim_a_reproducir):
+		await anim_player.animation_finished
+	else:
+		await get_tree().create_timer(0.4).timeout
+	atacando = false
+
+func _verificar_impacto_servidor() -> void:
+	var mapa = get_parent()
+	if not mapa:
+		return
+		
+	for nodo in mapa.get_children():
+		if nodo is CharacterBody3D and nodo != self and not nodo.esta_muerta:
+			var distancia = global_position.distance_to(nodo.global_position)
+			if distancia <= rango_ataque:
+				nodo.aplicar_dano_autoritario(dano_ataque)

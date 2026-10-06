@@ -13,16 +13,23 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1150.0
 offset_bottom = 649.0
+mouse_filter = 2
 script = ExtResource("1_hh6cp")
 
 [node name="MenuInicio" parent="PantallasController" unique_id=2135174316 instance=ExtResource("2_ykj6t")]
+visible = false
 layout_mode = 0
+mouse_filter = 2
 
 [node name="HUD" parent="PantallasController" unique_id=603160598 instance=ExtResource("3_d5p2u")]
 layout_mode = 0
 
 [node name="PantallaGameOver" parent="PantallasController" unique_id=2067723548 instance=ExtResource("4_w4kly")]
+visible = false
 layout_mode = 0
+mouse_filter = 2
 
 [node name="PantallaVictoria" parent="PantallasController" unique_id=1962824507 instance=ExtResource("5_ewxe3")]
+visible = false
 layout_mode = 0
+mouse_filter = 2

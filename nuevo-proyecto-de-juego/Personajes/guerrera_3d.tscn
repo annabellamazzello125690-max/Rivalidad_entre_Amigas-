@@ -9,7 +9,7 @@ radius = 0.5527344
 height = 2.5141602
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tpinl"]
-size = Vector3(0.2, 2, 1)
+size = Vector3(0.2, 2.4, 1)
 
 [sub_resource type="Animation" id="Animation_cdtf5"]
 
@@ -127,9 +127,11 @@ bone_idx = 17
 transform = Transform3D(0.86198014, 0.08484387, -0.49979144, -0.5069416, 0.14426447, -0.8498222, -5.960463e-08, 0.9858951, 0.16736406, 0, 0.07, 0)
 
 [node name="Area_ataque" type="Area3D" parent="knightpr/root_armature_knight/Skeleton3D/BoneAttachment3D/Axe_TwoHanded_Set_A" unique_id=1113395815]
+monitoring = false
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="knightpr/root_armature_knight/Skeleton3D/BoneAttachment3D/Axe_TwoHanded_Set_A/Area_ataque" unique_id=484723001]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4505806e-08, 0.5256007, -0.0103857815)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7939677e-08, 0.70676446, -0.0010247212)
 shape = SubResource("BoxShape3D_tpinl")
 
 [node name="AnimationPlayer" parent="knightpr" index="1" unique_id=2142506418]

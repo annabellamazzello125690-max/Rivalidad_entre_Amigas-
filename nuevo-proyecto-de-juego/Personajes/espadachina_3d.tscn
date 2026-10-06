@@ -29,7 +29,7 @@ _data = {
 &"golpe": SubResource("Animation_qua53")
 }
 
-[node name="CharacterBody3D" type="CharacterBody3D" unique_id=876496195]
+[node name="espadachina" type="CharacterBody3D" unique_id=876496195]
 script = ExtResource("1_22luq")
 anim_quieta = "anim_iddle"
 anim_caminar = "anim_walk"

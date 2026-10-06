@@ -1,6 +1,5 @@
 class_name PersonajeBase
 extends CharacterBody3D
-signal vida_cambiada(actual: int, maxima: int)
 
 @export var vida_maxima: int = 100
 var vida_actual: int = 100
@@ -18,46 +17,69 @@ const SENSIBILIDAD_RATON = 0.003
 
 var gravedad = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-@onready var visual: Node3D = get_node_or_null("knightpr")
-@onready var pivote_camara: Node3D = $PivoteCamara
-@onready var camara: Camera3D = find_child("Camera3D", true, false)
+@onready var visual: Node3D = get_node_or_null("knightpr") if get_node_or_null("knightpr") else get_node_or_null("studentpr")
+@onready var pivote_camara: Node3D = find_child("PivoteCamara", true, false)
 @onready var spring_arm: SpringArm3D = find_child("SpringArm3D", true, false)
+@onready var camara: Camera3D = find_child("Camera3D", true, false)
 var anim_player: AnimationPlayer
 
 func _ready() -> void:
 	vida_actual = vida_maxima
 	anim_player = find_child("AnimationPlayer", true, false)
-	# Capturar y ocultar el cursor dentro de la ventana de juego
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	# Excluir el cuerpo del personaje del SpringArm para que no choque la cámara consigo mismo
 	if spring_arm:
 		spring_arm.add_excluded_object(get_rid())
+
+	# --- AUTORIDAD DE RED ---
+	var soy_el_dueno: bool = is_multiplayer_authority()
+	
+	# Solo el dueño publica su vida al HUD local
+	if soy_el_dueno:
+		EventosJuego.publicar_vida(vida_actual, vida_maxima)
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+	# Solo activa la cámara de tu pantalla
+	if camara:
+		camara.current = soy_el_dueno
+
+	# Solo lee mouse y teclado si es tu personaje
+	set_process_unhandled_input(soy_el_dueno)
 func _unhandled_input(event: InputEvent) -> void:
-	# Liberar el cursor si se presiona la tecla Escape
-	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
-		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		else:
+	if not multiplayer.has_multiplayer_peer() or not is_multiplayer_authority():
+		return
+	# Liberar o volver a capturar el cursor con Escape
+	if event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode == KEY_ESCAPE:
+			if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			else:
+				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+	# Capturar con clic izquierdo si estaba libre
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
-	# Rotar la cámara con el movimiento del ratón
+	# Rotar la cámara solo si el cursor está capturado
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		# Giro horizontal
 		if pivote_camara:
 			pivote_camara.rotate_y(-event.relative.x * SENSIBILIDAD_RATON)
 		else:
 			rotate_y(-event.relative.x * SENSIBILIDAD_RATON)
 		
-		# Giro vertical sin bloqueo
 		if spring_arm:
 			spring_arm.rotate_x(-event.relative.y * SENSIBILIDAD_RATON)
 			spring_arm.rotation.x = clampf(spring_arm.rotation.x, -0.6, 0.5)
-
 func reproducir(anim: String) -> void:
 	if anim_player and anim_player.has_animation(anim):
 		if anim_player.current_animation != anim:
 			anim_player.play(anim)
 
 func _physics_process(delta: float) -> void:
+	# Si este personaje no me pertenece a mí, no le aplico mis teclas
+	if not multiplayer.has_multiplayer_peer() or not is_multiplayer_authority():
+		return
 	if esta_muerta:
 		if not is_on_floor():
 			velocity.y -= gravedad * delta
@@ -126,7 +148,7 @@ func recibir_dano(cantidad: int) -> void:
 		return
 	vida_actual = clampi(vida_actual - cantidad, 0, vida_maxima)
 	print("Vida: ", vida_actual, "/", vida_maxima)
-	vida_cambiada.emit(vida_actual, vida_maxima)
+	EventosJuego.publicar_vida(vida_actual, vida_maxima)
 	if vida_actual <= 0:
 		morir()
 
@@ -135,10 +157,10 @@ func curar(cantidad: int) -> void:
 		return
 	vida_actual = clampi(vida_actual + cantidad, 0, vida_maxima)
 	print("Vida: ", vida_actual, "/", vida_maxima)
-	vida_cambiada.emit(vida_actual, vida_maxima)
-
+	EventosJuego.publicar_vida(vida_actual, vida_maxima)
 func morir() -> void:
 	esta_muerta = true
 	velocity = Vector3.ZERO
 	print("El personaje ha muerto.")
 	reproducir(anim_muerte)
+	GameManager.game_over()

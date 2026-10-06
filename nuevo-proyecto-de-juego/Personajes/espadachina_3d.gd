@@ -15,13 +15,13 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 # Verificación previa de conexión para no consultar autoridad en vacío
-	if not multiplayer.has_multiplayer_peer() or not is_multiplayer_authority():
+	if not is_multiplayer_authority():
 		return
 
 	super._unhandled_input(event)
 	
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		if not atacando:
+		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED and not atacando:
 			ejecutar_ataque.rpc()
 
 @rpc("call_local", "reliable")

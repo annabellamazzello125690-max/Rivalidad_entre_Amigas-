@@ -23,9 +23,16 @@ func _ready() -> void:
 		EventosJuego.estado_cambio.connect(cambiar_pantalla)
 
 	# 3. Lógica automática de pantallas:
-	# Si ya estamos dentro del mapa de la escuela, forzamos combate (HUD).
-	# Si estamos en cualquier otra escena (menú), mostramos el menú de inicio.
+	# Verificamos si estamos dentro de la Escuela (por nombre de escena o si somos hijos de ella)
+	var en_escuela = false
 	if get_tree().current_scene and get_tree().current_scene.name == "Escuela":
+		en_escuela = true
+	elif owner and owner.name == "Escuela":
+		en_escuela = true
+	elif get_parent() and get_parent().name == "Escuela":
+		en_escuela = true
+
+	if en_escuela:
 		mostrar_solo("HUD")
 	else:
 		mostrar_solo("MENU")
@@ -34,17 +41,16 @@ func _ready() -> void:
 	if boton_jugar and multiplayer.has_multiplayer_peer() and not multiplayer.is_server():
 		boton_jugar.disabled = true
 		boton_jugar.text = "Esperando al Host..."
-
+		
 func _al_pulsar_jugar() -> void:
 	if boton_jugar:
 		boton_jugar.disabled = true
-
+	mostrar_solo("HUD")
 	if multiplayer.has_multiplayer_peer():
 		if multiplayer.is_server():
 			print("¡Host inició el combate! Sincronizando con todos...")
 			RedManager.cargar_partida_escuela.rpc()
 	else:
-		mostrar_solo("HUD")
 		GameManager.iniciar_juego()
 
 # Función que apaga TODO y enciende SOLO lo que se le pide
